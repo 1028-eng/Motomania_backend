@@ -74,12 +74,22 @@ function updateProductByIdPut( req, res ) {
     });
 }
 
-function updateProductByIdPatch( req, res ) {
+async function updateProductByIdPatch( req, res ) {
     const id = req.params.id;
+    const imputdata = req.body
+    try { 
+    const data = await ProductModel.findByIdAndUpdate(id,imputdata,{new:true})
     res.json({
         ok: true,
-        msg: `Actualiza parcialmente los recursos de un producto por ID: ${ id }`
+        data: data
     });
+    } catch (error) {
+        console.error(error)
+        res.json({
+            ok: false,
+            msg: "Error al actualizar el objeto"
+        })
+    }
 }
 
 // module.exports = getProducts;  // Export Default

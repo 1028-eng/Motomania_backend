@@ -16,10 +16,15 @@ const obtenerProductoPorId = async(id) => {
 const eliminarProductoPorId = async(id) => {
     return await ProductModel.findOneAndDelete ({_id:id});
 }
+const actualizarProductoPorId = async(id) => {
+    return await ProductModel.findByIdAndUpdate (id,imputdata,{new:true});
+}
+
 
 module.exports = {
     insertProduct,
     obtenertodoslosproductos,
     obtenerProductoPorId,
-    eliminarProductoPorId
+    eliminarProductoPorId,
+    actualizarProductoPorId
 };
