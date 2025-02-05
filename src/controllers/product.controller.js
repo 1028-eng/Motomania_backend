@@ -1,6 +1,6 @@
 const ProductModel = require("../models/product.model");
 const { insertProduct }  = require("../models/product.model");
-const { obtenertodoslosproductos } = require("../services/product.service");
+const { obtenertodoslosproductos, obtenerProductoPorId, eliminarProductoPorId } = require("../services/product.service");
 
 async function getProducts( req, res ) {
 
@@ -34,7 +34,7 @@ async function createProduct( req, res ) {
 async function getProductById( req, res ) {
     const id = req.params.id;
     try {
-        const data = await ProductModel.find ({ _id:id })
+        const data = await obtenerProductoPorId (id)
         res.json({
             ok: true,
             data: data
@@ -49,12 +49,21 @@ async function getProductById( req, res ) {
     
 } 
 
-function deleteProductById( req, res ) {
+async function deleteProductById( req, res ) {
     const id = req.params.id;
-    res.json({
-        ok: true,
-        msg: `Elimina un producto por ID: ${ id }`
+    try {
+        const data = await eliminarProductoPorId (id)
+        res.json({
+            ok:true,
+            data: data
+        })
+    } catch (error) {
+        console.error(error)
+        res.json ({
+            ok: false,
+            msg: "Error al eliminar la id"
     });
+}
 }
 
 function updateProductByIdPut( req, res ) {
