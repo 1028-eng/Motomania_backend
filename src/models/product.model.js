@@ -28,7 +28,7 @@ const ProductSchema = new mongoose.Schema({
 
 /** Paso 2: Vinculamos la estructura de datos a una coleccion dando como resultado un Modelo de datos */
 const ProductModel = mongoose.model(
-    'products',         // Nombre de la coleccion donde se agruparan los documentos
+    "products",         // Nombre de la coleccion donde se agruparan los documentos
     ProductSchema       // Estructura de datos de la Entidad
 );
 

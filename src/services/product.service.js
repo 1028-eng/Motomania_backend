@@ -1,30 +1,31 @@
-const ProductModel = require("../models/product.model");
+const ProductModel = require("../models/Product.model");
 
 async function insertProduct( newProduct ) {
     /** Consulta a la BD (Responsabilidad del Servicio) */
-    return await ProductModel.create( newProduct );    // Mongoose registra en MongoDB
+    return await ProductModel.create( newProduct
+     );    // Mongoose registra en MongoDB
 }
 
-const obtenertodoslosproductos = async( ) => {
+const obtenerElProduto = async( ) => {
     return await ProductModel.find( );
 }
 
-const obtenerProductoPorId = async(id) => {
+const obtenerElProductoPorId = async(id) => {
     return await ProductModel.findOne ({_id:id});
 }
 
 const eliminarProductoPorId = async(id) => {
     return await ProductModel.findOneAndDelete ({_id:id});
 }
-const actualizarProductoPorId = async(id) => {
+const actualizarProductoPorId = async(id,imputdata) => {
     return await ProductModel.findByIdAndUpdate (id,imputdata,{new:true});
 }
 
 
 module.exports = {
     insertProduct,
-    obtenertodoslosproductos,
-    obtenerProductoPorId,
+    obtenerElProduto,
+    obtenerElProductoPorId,
     eliminarProductoPorId,
     actualizarProductoPorId
 };
