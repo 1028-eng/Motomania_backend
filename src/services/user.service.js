@@ -5,7 +5,8 @@ async function dbInsertUser( newProduct ) {
 }
 
 async function dbGetUser() {
-    return await UserModel.find({})   
+    return await UserModel.find({}).select('-password -createdAt -updatedAt')  
+    return await UserModel.find({},{ password: 0, createdAt: 0, updatedAt: 0 })   
 }
 
 async function dbGetUserById( id ) {

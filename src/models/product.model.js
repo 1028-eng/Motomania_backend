@@ -18,12 +18,18 @@ const ProductSchema = new mongoose.Schema({
         type: String
     },
     category: {
-        type: String
+        type: mongoose.Schema.ObjectId,
+        ref: "category"
     },
     state: {
         type: Boolean,
         default: true
-    }
+    },
+     userId: {
+            type: mongoose.Schema.ObjectId,
+            ref: "user"
+    
+        }
 });
 
 /** Paso 2: Vinculamos la estructura de datos a una coleccion dando como resultado un Modelo de datos */

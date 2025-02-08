@@ -1,6 +1,5 @@
 const ProductModel = require("../models/Product.model");
-const { insertProduct }  = require("../models/Product.model");
-const { obtenerElProduto, obtenerElProductoPorId, eliminarProductoPorId, actualizarProductoPorId } = require("../services/product.service");
+const { obtenerElProduto, obtenerElProductoPorId, eliminarProductoPorId, actualizarProductoPorId, insertProduct } = require("../services/product.service");
 
 async function getProducts( req, res ) {
 
@@ -26,7 +25,7 @@ async function createProduct( req, res ) {
     const inputData = req.body;
 
     try {
-        const data = await obtenerElProduto( inputData );
+        const data = await insertProduct( inputData );
         res.json({
             ok: true,
             data: data

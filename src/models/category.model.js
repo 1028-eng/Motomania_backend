@@ -7,7 +7,12 @@ const categorySchema = new mongoose.Schema({
     },
     description: {
         type: String
-    }
+    },
+     userId: {
+            type: mongoose.Schema.ObjectId,
+            ref: "user"
+    
+        }
 })
 
 const categoryModel = mongoose.model(
