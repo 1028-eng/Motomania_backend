@@ -1,5 +1,6 @@
 const express = require( 'express' );
 const { createservice, getservice, getserviceById, deleteserviceById, updateserviceByIdPatch } = require('../controllers/services.controller');
+const validateId = require('../middlewares/validate-id.middleware');
 
 const router = express.Router();
 
@@ -9,13 +10,13 @@ router.post( '/', createservice );
 router.get( '/', getservice );
 
 
-router.get( '/:id', getserviceById );
+router.get( '/:id', validateId, getserviceById );
 
 
-router.delete( '/:id', deleteserviceById );
+router.delete( '/:id', validateId, deleteserviceById );
 
 
-router.patch( '/:id', updateserviceByIdPatch
+router.patch( '/:id', validateId, updateserviceByIdPatch
  );
 
 

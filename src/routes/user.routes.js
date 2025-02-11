@@ -1,6 +1,8 @@
-const express = require ('express')
-const { createUser, getUserById, deleteUserById, updateUserById, getUsers } = require ('../controllers/user.controller')
-const router = express.Router()
+const express = require ('express');
+const { createUser, getUserById, deleteUserById, updateUserById, getUsers } = require ('../controllers/user.controller');
+const validateId = require('../middlewares/validate-id.middleware');
+
+const router = express.Router();
 
 // http://localhost:<port>/api/products/
 router.get( '/', getUsers )
@@ -10,12 +12,12 @@ router.post( '/', createUser )
 
 // http://localhost:<port>/api/products/<product-id>
 // req.params.pedro = 7654ftgyhuji
-router.get( '/:id', getUserById )
+router.get( '/:id', validateId, getUserById )
 
 // http://localhost:<port>/api/products/<product-id>
-router.delete( '/:id', deleteUserById )
+router.delete( '/:id', validateId, deleteUserById )
 
 // http://localhost:<port>/api/products/<product-id>
-router.patch( '/:id', updateUserById )
+router.patch( '/:id', validateId, updateUserById )
 
 module.exports = router
