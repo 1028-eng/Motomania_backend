@@ -9,9 +9,8 @@ function validateId( req, res, next ) {
                 ok: false,
                 msg: "El id NO es valido"
             } );
-
-            next();
-        }
+    }
+        next();
 }
 
 module.exports = validateId
