@@ -83,13 +83,13 @@ const reNewToken = async ( req, res ) => {
         });
 
         // Paso 4: Eliminar propiedades del objeto (password)
-        const objUserFound = removePropertiesToObject({ obj: userFound, properties: [ 'password' ] });
+        
 
         // Paso 5: Responder al cliente enviandole el Token y los datos actualizados del usuario autenticado
         res.json({
             ok: true,
             token, 
-            data: objUserFound
+            data: userFound
         });
     } 
     catch ( error ) {

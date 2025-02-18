@@ -1,8 +1,8 @@
 const express = require( 'express' );
 
 const { loginUser, reNewToken } = require('../controllers/auth.controller');
-const { verifyToken } = require('../helpers/jwt.helper');
 const { createUser } = require('../controllers/user.controller');
+const { validateAuthUser } = require('../middlewares/validate-auth-user.middlewares');
 
 const router = express.Router();
 
@@ -17,7 +17,7 @@ router.post( '/register', createUser );
 router.post( '/login', loginUser );
 
 // Renovar las credenciales (Token) --> http://localhost:3000/api/auth/re-new-token
-router.get( '/re-new-token', verifyToken, reNewToken );
+router.get( '/re-new-token', validateAuthUser, reNewToken );
 
 
 

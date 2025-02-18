@@ -1,4 +1,4 @@
-const encryptedPassword = require("../helpers/bcrypt.helper");
+const {encryptedPassword} = require("../helpers/bcrypt.helper");
 const UserModel = require("../models/user.model")
 
 async function dbInsertUser( newUser ) {
