@@ -12,4 +12,15 @@ function encryptedPassword ( pass ) {
     return hashPassword;
 }
 
-module.exports = encryptedPassword;
+const verifyEncriptedPassword = ( pass, hashPass ) => {
+    return bcrypt.compareSync( 
+        pass,       
+        hashPass    
+    );
+}
+
+
+module.exports = {
+    encryptedPassword,
+    verifyEncriptedPassword
+}
