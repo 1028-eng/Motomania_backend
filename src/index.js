@@ -18,6 +18,7 @@ app.use( '/api/categorys', require( './routes/category.routes.js' ) );
 app.use('/api/users', require( './routes/user.routes.js' ) )
 app.use( '/api/services', require( './routes/services.routes.js' ) );
 app.use( "/api/auth", require( "./routes/auth.routes.js") );
+app.use( "/api/order", require( "./routes/order.routes.js") );
 
 
 /** Lanzar servidor: http://localhost:<port> */
