@@ -24,7 +24,7 @@ async function loginUser( req, res ) {
 
         if( ! isValidPassword ) {
             return res.json({
-                ok: false,
+                ok: false, 
                 msg: 'Contraseña invalida'
             });
         }
