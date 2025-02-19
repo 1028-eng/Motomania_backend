@@ -3,7 +3,8 @@ const mongoose = require( "mongoose" );
 const categorySchema = new mongoose.Schema({
     name: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     description: {
         type: String
@@ -13,7 +14,10 @@ const categorySchema = new mongoose.Schema({
             ref: "user"
     
         }
-})
+},{
+    timestamps: true,
+    versionKey: false
+});
 
 const categoryModel = mongoose.model(
     "category",

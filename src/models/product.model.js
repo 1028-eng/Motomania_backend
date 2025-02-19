@@ -4,7 +4,8 @@ const mongoose = require( 'mongoose' );
 const ProductSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     description: {
         type: String
@@ -13,6 +14,11 @@ const ProductSchema = new mongoose.Schema({
         type: Number,
         min: 0,
         default: 0
+    },
+    stock: {
+        type: Number,
+        min: 1,
+        default: 1
     },
     urlImage: {
         type: String
@@ -25,11 +31,14 @@ const ProductSchema = new mongoose.Schema({
         type: Boolean,
         default: true
     },
-     userId: {
+    userId: {
             type: mongoose.Schema.ObjectId,
             ref: "user"
     
         }
+},{
+    timestamps: true,
+    versionKey: false
 });
 
 /** Paso 2: Vinculamos la estructura de datos a una coleccion dando como resultado un Modelo de datos */
