@@ -11,7 +11,7 @@ const serviceSchema = new mongoose.Schema({
     },
     duration:{
         type: Number,
-        required:true
+        required: true
     },
     userId: {
         type: mongoose.Schema.ObjectId,
