@@ -17,7 +17,7 @@ const obtenerOrderPorId = async(id) => {
 const eliminarOrderPorId = async(id) => {
     return await orderModel.findOneAndDelete ({_id:id});
 }
-const actualizarCategoriaPorId = async(id) => {
+const actualizarOrderPorId = async(id) => {
     return await orderModel.findByIdAndUpdate (id,imputdata,{new:true});
 }
 
@@ -27,5 +27,5 @@ module.exports = {
     obtenerlaOrder,
     obtenerOrderPorId,
     eliminarOrderPorId,
-    actualizarCategoriaPorId
+    actualizarOrderPorId
 };
