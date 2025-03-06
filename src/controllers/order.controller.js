@@ -1,5 +1,4 @@
-
-const { obtenerlaOrder, insertorder, eliminarOrderPorId, actualizarorderPorId } = require("../services/order.services");
+const { obtenerlaOrder, insertOrder, obtenerOrderPorId, eliminarOrderPorId, actualizarOrderPorId } = require("../services/order.services");
 
 async function getOrder( req, res ) {
 
@@ -23,7 +22,7 @@ async function createOrder( req, res ) {
     const inputData = req.body;
 
 try { 
-    const data = await insertorder( inputData );
+    const data = await insertOrder( inputData );
 
     res.json({
         ok: true,
@@ -77,7 +76,7 @@ async function updateOrderByIdPatch( req, res ) {
     const id = req.params.id;
     const imputdata = req.body
     try { 
-    const data = await actualizarorderPorId(id,imputdata)
+    const data = await actualizarOrderPorId( id, imputdata );
     res.json({
         ok: true,
         data: data
@@ -86,7 +85,7 @@ async function updateOrderByIdPatch( req, res ) {
         console.error(error)
         res.json({
             ok: false,
-            msg: "Error al actualizar el objeto"
+            msg: "Error al actualizar orden"
         })
     }
 }
