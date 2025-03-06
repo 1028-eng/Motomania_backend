@@ -2,7 +2,7 @@ const orderModel = require("../models/order.model");
 
 async function insertorder( neworder ) {
     /** Consulta a la BD (Responsabilidad del Servicio) */
-    return await categoryModel.create( neworder
+    return await orderModel.create( neworder
      );    // Mongoose registra en MongoDB
 }
 
@@ -17,8 +17,8 @@ const obtenerOrderPorId = async(id) => {
 const eliminarOrderPorId = async(id) => {
     return await orderModel.findOneAndDelete ({_id:id});
 }
-const actualizarCategoriaPorId = async(id) => {
-    return await orderModel.findByIdAndUpdate (id,imputdata,{new:true});
+const actualizarorderPorId = async(id, inputData) => {
+    return await orderModel.findByIdAndUpdate (id,inputData,{new:true});
 }
 
 
@@ -27,5 +27,5 @@ module.exports = {
     obtenerlaOrder,
     obtenerOrderPorId,
     eliminarOrderPorId,
-    actualizarCategoriaPorId
+    actualizarorderPorId
 };

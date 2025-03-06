@@ -1,10 +1,10 @@
-const orderModel = require("../models/order.model");
-const { obtenerElOrder, insertOrder, eliminarOrderPorId,updateOrderyByIdPatch } = require("../services/order.service");
+
+const { obtenerlaOrder, insertorder, eliminarOrderPorId, actualizarorderPorId } = require("../services/order.services");
 
 async function getOrder( req, res ) {
 
     try { 
-    const data = await obtenerElOrder();
+    const data = await obtenerlaOrder();
 
     res.json({
         ok: true,
@@ -23,7 +23,7 @@ async function createOrder( req, res ) {
     const inputData = req.body;
 
 try { 
-    const data = await insertOrder( inputData );
+    const data = await insertorder( inputData );
 
     res.json({
         ok: true,
@@ -73,19 +73,11 @@ async function deleteOrderById( req, res ) {
 }
 }
 
-function updateOrderByIdPut( req, res ) {
-    const id = req.params.id;
-    res.json({
-        ok: true,
-        msg: `Actualiza todos los recursos de un producto por ID: ${ id }`
-    });
-}
-
-async function updateOrderyByIdPatch( req, res ) {
+async function updateOrderByIdPatch( req, res ) {
     const id = req.params.id;
     const imputdata = req.body
     try { 
-    const data = await categoryModel.findByIdAndUpdate(id,imputdata,{new:true})
+    const data = await actualizarorderPorId(id,imputdata)
     res.json({
         ok: true,
         data: data
@@ -105,6 +97,5 @@ module.exports = {
     createOrder,
     getOrderById,
     deleteOrderById,
-    updateOrderByIdPut,
     updateOrderByIdPatch
 }

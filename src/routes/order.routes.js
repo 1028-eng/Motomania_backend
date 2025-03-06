@@ -1,22 +1,22 @@
 const express = require( 'express' );
-const { createorder, getorder, getorderById, deleteorderById, updateorderByIdPatch } = require('../controllers/order.controller');
+const { createOrder, getOrder, getOrderById, deleteOrderById, updateOrderByIdPatch,  } = require('../controllers/order.controller');
 const validateId = require('../middlewares/validate-id.middleware');
 
 const router = express.Router();
 
-router.post( '/', createorder );
+router.post( '/', createOrder );
 
 
-router.get( '/', getorder );
+router.get( '/', getOrder );
 
 
-router.get( '/:id', validateId, getorderById );
+router.get( '/:id', validateId, getOrderById );
 
 
-router.delete( '/:id', validateId, deleteorderById );
+router.delete( '/:id', validateId, deleteOrderById );
 
 
-router.patch( '/:id', validateId, updateorderByIdPatch
+router.patch( '/:id', validateId, updateOrderByIdPatch
  );
 
 
