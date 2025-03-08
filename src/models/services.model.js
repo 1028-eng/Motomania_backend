@@ -9,10 +9,10 @@ const serviceSchema = new mongoose.Schema({
     description: {
         type: String
     },
-    duration:{
-        type: Number,
-        required: true
-    },
+    // duration:{
+    //     type: Number,
+    //     required: true
+    // },
     userId: {
         type: mongoose.Schema.ObjectId,
         ref: "user"
