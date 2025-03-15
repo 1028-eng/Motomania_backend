@@ -9,6 +9,9 @@ const serviceSchema = new mongoose.Schema({
     description: {
         type: String
     },
+    urlimage:{
+        type: String
+    },
     // duration:{
     //     type: Number,
     //     required: true

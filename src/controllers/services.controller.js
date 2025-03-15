@@ -22,6 +22,7 @@ async function getservice( req, res ) {
 
 async function createservice( req, res ) {
     const inputData = req.body;
+    console.log (inputData)
 
 try { 
     const data = await inserteElservice( inputData )
@@ -92,6 +93,27 @@ async function updateserviceByIdPatch( req, res ) {
         })
     }
 }
+async function updateserviceById(req, res) {
+    const id = req.params.id;
+    const inputData = req.body;
+
+    try {
+        const data = await dbUpdateServiceById(id, inputData);
+
+        res.json({
+            ok: true,
+            data: data
+        });
+    }
+    catch (error) {
+        console.error(error);
+        res.json({
+            ok: false,
+            msg: 'Ha ocurrido una excepcion al actualizar los datos por ID'
+        });
+    }
+
+}
 
 // module.exports = get+Category;  // Export Default
 module.exports = {
@@ -99,5 +121,5 @@ module.exports = {
     createservice,
     getserviceById,
     deleteserviceById,
-    updateserviceByIdPatch
-}
+    updateserviceById,
+    updateserviceByIdPatch}
