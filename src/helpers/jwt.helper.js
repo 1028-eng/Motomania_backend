@@ -4,7 +4,7 @@ const jwt = require( 'jsonwebtoken' );
 function generateToken ( payload ) {
     return jwt.sign( 
         payload,                    
-        'Sid?6&n,3oI0',       
+        process.env.JWT_SEED,       
         { expiresIn: '1h' }        
     );
 }
@@ -12,7 +12,7 @@ function generateToken ( payload ) {
 function verifyToken ( token ) {
     return jwt.verify( 
         token,                      
-        'Sid?6&n,3oI0'        
+        process.env.JWT_SEED        
     );
 }
 
