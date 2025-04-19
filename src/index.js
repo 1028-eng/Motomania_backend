@@ -1,5 +1,5 @@
 const express = require( 'express' );
-const dbConection = require('./config/mongo.config.js');
+const dbConection = require('./../src/config/mongo.config.js');
 // const conexionDB = require('./config/mongo.config.js');
 const app = express();
 const cors = require( 'cors' );
