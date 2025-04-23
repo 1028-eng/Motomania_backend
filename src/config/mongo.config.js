@@ -1,10 +1,12 @@
 const mongoose = require( 'mongoose' );
+const dotenv = require ('dotenv')
+dotenv.config()
 
 /** Configuracion para conectar MongoDB usando la dependencia MongooseJS usando Async/Await */
 async function dbConection() {
     // try-catch: Se usa para manejar excepciones
     try {
-        await mongoose.connect( 'mongodb://localhost:27017/db-r-finder', {} );      // Conectamos a la base de datos y retorna promesa
+        await mongoose.connect( process.env.BD_URI, {} );      // Conectamos a la base de datos y retorna promesa
         console.log( 'Base de datos inicializada correctamente' );
     } 
     catch ( error ) {
