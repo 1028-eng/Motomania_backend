@@ -9,7 +9,7 @@ const router = express.Router();
 router.get( '/', getUsers )
 
 // http://localhost:<port>/api/products/
-router.post( '/', verifyToken, createUser )
+router.post( '/', createUser )
 
 // http://localhost:<port>/api/products/<product-id>
 // req.params.pedro = 7654ftgyhuji

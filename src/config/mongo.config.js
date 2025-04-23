@@ -1,4 +1,6 @@
 const mongoose = require( 'mongoose' );
+const dotenv = require ('dotenv')
+dotenv.config()
 
 /** Configuracion para conectar MongoDB usando la dependencia MongooseJS usando Async/Await */
 async function dbConection() {
