@@ -6,7 +6,7 @@ dotenv.config()
 async function dbConection() {
     // try-catch: Se usa para manejar excepciones
     try {
-        await mongoose.connect( process.env.BD_URI, {} );      // Conectamos a la base de datos y retorna promesa
+        await mongoose.connect( 'mongodb+srv://Sebasgg:1606@cluster0.dt1nb.mongodb.net/db-r-finder', {} );      // Conectamos a la base de datos y retorna promesa
         console.log( 'Base de datos inicializada correctamente' );
     } 
     catch ( error ) {
